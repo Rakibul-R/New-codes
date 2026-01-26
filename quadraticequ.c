@@ -4,7 +4,7 @@
 int main(){
 
     float a,b,c;
-    printf("Enter your equational three constant: ");
+    printf("Enter your equational three constant value's : ");
     scanf("%f %f %f", &a,&b,&c);
 
     float D,x1,x2,R_P,I_P;
@@ -28,8 +28,8 @@ int main(){
        R_P = -b / (2*a);
        I_P = sqrt(-D) / (2*a);
 
-printf("Your variable 1st value is = '%.2f + %.2fi'\n", R_P, I_P);
-printf("Your variable 2nd value is = '%.2f - %.2fi'\n", R_P, I_P);
+printf("Your variable 1st value is = '%.2f + %.2fi'.\n", R_P, I_P);
+printf("Your variable 2nd value is = '%.2f - %.2fi'.\n", R_P, I_P);
     }
     
 
