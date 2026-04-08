@@ -1,33 +1,40 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int main(){
-    int n,i,find=0, prime=1;;
-    printf("Enter your range (n) : ");
-    scanf("%d",&n);
+int main() {
+    int n;
 
-    if(n<2){
-        printf("No prime number find in your range(%d)...Thanks you",n);
+    printf("Enter your range (n): ");
+
+    // “If scanf did NOT successfully read 1 integer → do error handling”
+    if (scanf("%d", &n) != 1) {
+        printf("Invalid input! Please enter a valid integer number.\n");
         return 0;
     }
-    if(n>='a'||n>='z'||n>='A'||n>='Z'||n<0){
-        printf("Invalid input...Please enter a valid number");
+
+    // Range validation
+    if (n < 2) {
+        printf("No prime numbers in this range (%d).\n", n);
         return 0;
     }
-    for( i=2; i<=n; i++){
-        prime=1;
-            for(int j=2; j<i; j++){
-                if(i%j==0){
-                    prime=0;
-                    continue;
-                }
+
+    printf("\nPrime numbers up to %d are:\n", n);
+
+    // Prime number logic
+    for (int i = 2; i <= n; i++) {
+        int prime = 1;
+
+        for (int j = 2; j * j <= i; j++) {  // efficient check
+            if (i % j == 0) {
+                prime = 0;
+                break;
             }
-            if(i==2)
-            printf("\nThe prime numbers in your range(%d) is: \n",n);
-         if(prime){
-            printf("%d \t",i);
-            find=1;
-         }     
+        }
+
+        if (prime) {
+            printf("%d ", i);
+        }
     }
 
+    printf("\n");
     return 0;
 }
